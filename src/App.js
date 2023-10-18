@@ -1,14 +1,30 @@
 import logo from './logo.svg';
-// import test from './text.js'
-import './style.css'
+import { useEffect } from 'react';
+import Test from './Test'
+
+import { Title } from './Components';
+
+import styles from'./App.module.css'
+// import './tailwind.css'
+
+// import './style.scss'
+import Bootstrap from './Bootstrap';
+import Tailwind from './Tailwind';
 
 function App() {
+  useEffect(()=>{
+    if(process.env.NODE_ENV=='production'){
+      //analizci 
+    }
+  },[])
   return (
-    <div className="App">
-      <h3>{process.env.NODE_ENV}</h3>
+    <div className={styles.App}>
+      <Title>{process.env.NODE_ENV}</Title>
+      <Title theme="dark">{process.env.NODE_ENV}</Title> 
       <p>
          {process.env.REACT_APP_API_URL}
       </p>
+      <Test />
       {process.env.NODE_ENV == "production" && (
         <>
           <img src='/logo192.png'></img>
@@ -17,6 +33,8 @@ function App() {
           test
         </>
       )}
+      <Bootstrap />
+      <Tailwind />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-function test(){
+function Test(){
     return (
         <div className="App">
             Test component
